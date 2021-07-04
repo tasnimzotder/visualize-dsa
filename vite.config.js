@@ -1,17 +1,19 @@
 const { resolve } = require('path');
 import { defineConfig } from 'vite';
 
-module.exports = {
+export default defineConfig({
   build: {
     outDir: 'dist',
+    base: '/viz-games/',
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'index.html'),
-        'tower-of-hanoi': resolve(__dirname, 'games/tower-of-hanoi/index.html'),
+        'games/tower-of-hanoi': resolve(
+          __dirname,
+          'games/tower-of-hanoi/index.html'
+        ),
       },
     },
   },
-  defineConfig: {
-    base: '/viz-games/',
-  },
-};
+  base: '/viz-games/',
+});
