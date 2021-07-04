@@ -3,7 +3,7 @@ import { defineConfig } from 'vite';
 
 module.exports = {
   build: {
-    outDir: 'docs',
+    outDir: 'dist',
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'index.html'),
