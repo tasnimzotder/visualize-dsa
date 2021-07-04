@@ -1,0 +1,187 @@
+body {
+  margin: 0;
+  padding: 0;
+  color: #fff;
+  text-align: center;
+  background: #355c7d; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #c06c84,
+    #6c5b7b,
+    #355c7d
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #c06c84,
+    #6c5b7b,
+    #355c7d
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+nav {
+  margin-top: 20px;
+}
+
+nav span {
+  font-size: 1.45em;
+}
+
+.ctrl-panel {
+  margin-top: 50px;
+}
+
+.ctrl-panel button {
+  padding: 6px 12px;
+  font-size: 1.1em;
+  color: #fff;
+  border: none;
+  border-radius: 0;
+  background: #063242; /* fallback for old browsers */
+  background: linear-gradient(to left, #083632, #053344);
+  cursor: pointer;
+}
+
+.ctrl-panel button:hover {
+  transform: scale(1.05);
+}
+
+.display {
+  /* background-color: yellow; */
+  margin-top: 20px;
+  font-size: 1.3em;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.display .steps span {
+  color: rgba(255, 255, 255, 1);
+  font-size: 1.6em;
+  margin-left: 10px;
+}
+
+.steps {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.inp-size,
+.speed {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 12px;
+}
+
+.inp-size input,
+.speed input {
+  width: 200px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+/* game */
+.game {
+  /* background-color: yellow; */
+  /* height: 70vh; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+  padding-top: 80px;
+}
+
+.game-body {
+  /* background-color: red; */
+  width: 60%;
+  /* height: 60vh; */
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-evenly;
+}
+
+.game-base {
+  background-color: #e2a6b7;
+  height: 30px;
+  width: 66%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  /* padding: 10px 20%; */
+  align-items: center;
+}
+
+.tower {
+  background-color: aquamarine;
+  background: #ff6e7f; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to bottom,
+    #bfe9ff,
+    #ff6e7f
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to bottom,
+    #bfe9ff,
+    #ff6e7f
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  cursor: pointer;
+  height: 200px;
+  width: 20px;
+  margin: 5px;
+  margin-bottom: 0;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.plate {
+  background-color: tomato;
+  height: 16px;
+  border: 3px solid rgb(255, 188, 176);
+  transition: 0.3s;
+}
+
+.plate:hover {
+  background-color: rgb(252, 115, 137);
+  border: 3px solid rgb(252, 115, 137);
+}
+
+.plate-0 {
+  width: 120px;
+}
+.plate-1 {
+  width: 80px;
+}
+.plate-2 {
+  width: 50px;
+}
+
+.plate:not(:not(.selected)) {
+  background-color: yellow;
+  border: 3px solid yellow;
+
+  transform: scale(1.1);
+}
+
+.msg-display {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 1.3em;
+  /* transition: 3.9s; */
+}
+
+.msg-display p span {
+  color: white;
+  font-weight: bold;
+}
+
+/* footer */
+footer {
+  position: fixed;
+  bottom: 10px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* animations */
