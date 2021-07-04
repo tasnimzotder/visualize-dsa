@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tower of Hanoi Problem</title>
+
+    
+    
+  <script type="module" crossorigin src="/assets/tower-of-hanoi.47295a20.js"></script>
+  <link rel="stylesheet" href="/assets/tower-of-hanoi.bf2c23b7.css">
+</head>
+  <body onload="updateGame()">
+    <nav>
+      <span>The Tower of Hanoi Problem</span>
+    </nav>
+    <main>
+      <div class="ctrl-panel">
+        <div>
+          <button id="reset">Reset</button>
+          <button id="auto-btn">Auto Solve</button>
+        </div>
+        <div class="inp-size">
+         Input Size <input type="range" value="3" name="inp-size" id="inp-size" min="2" max="15" step="1">
+         <span id="inp-size-val">3</span>
+        </div>
+        <div class="speed">
+          Speed <input type="range" value="1000" name="speed" id="speed" min="10" max="5000" step="1">
+          <span id="speed-val">1000</span> ms
+        </div>
+      </div>
+      <div class="display">
+        <div class="steps">
+          Steps <span id="steps-counter">00</span> / <span id="total-steps">00</span>
+        </div>
+      </div>
+      <div class="game">
+        <div class="game-body">
+          <div class="tower" id="tower-0"></div>
+          <div class="tower" id="tower-1"></div>
+          <div class="tower" id="tower-2"></div>
+        </div>
+        <div class="game-base">
+          <div>Source</div>
+          <div>Auxilary</div>
+          <div>Destination</div>
+        </div>
+      </div>
+      <div class="msg-display"></div>
+    </main>
+    <footer>
+      <span>&#169 Tasnim Zotder | <span id="copy-year">2021</span></span>
+    </footer>
+  </body>
+</html>
