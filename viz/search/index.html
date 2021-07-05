@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Viz | Search</title>
+
+  <link rel="stylesheet" href="./search.scss" />
+  <script defer src="./search.ts" type="module"></script>
+</head>
+
+<body>
+  <nav>
+    <div class="home"><a href="/">Home</a></div>
+    <div class="title">Search</div>
+  </nav>
+
+  <main>
+    <div class="ctrl-panel">
+      <div class="ctrl-panel-top">
+
+        <div class="type">
+          <span>Type</span>
+          <input type="text">
+        </div>
+        <div class="n-elem">
+          <span>No. of Elements</span>
+          <input type="number" name="" id="n-elem" value="10" onchange="updateFunc()">
+        </div>
+        <div class="src-elem">
+          <span>Search Element</span>
+          <input type="number" id="src-elem" value="6" onchange="updateFunc()">
+        </div>
+      </div>
+      <div class="ctrl-panel-btm">
+        <button>Start</button>
+        <button>Reset</button>
+      </div>
+    </div>
+    <div class="main-body">
+      Main Array
+      <div class="main-array"></div>
+    </div>
+  </main>
+
+  <footer>
+    <span>&#169 Tasnim Zotder | <span id="copy-year">2021</span></span>
+    <span><a href="https://github.com/tasnimzotder/viz-games">GitHub</a></span>
+  </footer>
+</body>
+
+</html>
