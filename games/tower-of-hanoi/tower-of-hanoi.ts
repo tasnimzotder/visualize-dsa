@@ -79,11 +79,21 @@ const createPlates = () => {
 createPlates();
 
 const handleMessage = (from_tower: string, to_tower: string) => {
-  from_tower = (parseInt(from_tower) + 1).toString();
-  to_tower = (parseInt(to_tower) + 1).toString();
+  let msg_str: string;
 
-  let msg_str = `<p>Moving plate from <span>Tower ${from_tower}</span> 
-  to <span>Tower ${to_tower}</span></p>`;
+  let plate_count: number = <number>(
+    document.getElementById(`tower-${to_tower}`)?.childElementCount
+  );
+
+  if (plate_count == no_of_plates) {
+    msg_str = `<p>Completed</p>`;
+  } else {
+    from_tower = (parseInt(from_tower) + 1).toString();
+    to_tower = (parseInt(to_tower) + 1).toString();
+
+    msg_str = `<p>Moving plate from <span>Tower ${from_tower}</span> 
+  to <span>Tower ${to_tower}</span></>`;
+  }
 
   if (msg_display) msg_display.innerHTML = msg_str;
 };
@@ -122,6 +132,17 @@ const handlePlateMove = (plate: any, to_tower: string) => {
 
   curr_steps += 1;
 
+  let plate_count: number = <number>(
+    document.getElementById(to_tower)?.childElementCount
+  );
+
+  if (plate_count == no_of_plates) {
+    if (msg_display) msg_display.innerHTML = 'Completed';
+    setTimeout(() => {
+      if (msg_display) msg_display.innerHTML = '';
+    }, 2000);
+  }
+
   if (curr_steps.toString().length < solutions.length.toString().length) {
     if (steps_counter) steps_counter.innerHTML = '0' + curr_steps.toString();
   } else {
@@ -133,7 +154,7 @@ const handlePlateMove = (plate: any, to_tower: string) => {
 const handlePlateMoveWithTowers = (from_tower: string, to_tower: string) => {
   let from_tower_elm = document.getElementById(from_tower);
 
-  let total_child = from_tower_elm?.childElementCount;
+  let total_child: number = <number>from_tower_elm?.childElementCount;
 
   if (
     total_child
@@ -278,6 +299,8 @@ if (speed)
   });
 
 const reset = () => {
+  clearTimeout(updatePlatesTimeOutFunc);
+
   inp_size.value = '3';
   speed.value = '1000';
 
@@ -292,8 +315,6 @@ const reset = () => {
   }
 
   updateGame();
-
-  clearTimeout(updatePlatesTimeOutFunc);
 };
 
 reset_btn.addEventListener('click', () => {
