@@ -1,4 +1,23 @@
 {
+  "name": "viz-game",
+  "displayName": "Viz Game",
+  "description": "Visualized Algo (Games)",
+  "author": {
+    "name": "Tasnim Zotder",
+    "email": "hello@tasnim.dev"
+  },
+  "readme": "https://github.com/tasnimzotder/viz-games/blob/main/README.md",
+  "license": "MIT",
+  "private": "true",
+  "keywords": [
+    "game",
+    "algorithms",
+    "visualization"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tasnimzotder/viz-games.git"
+  },
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
