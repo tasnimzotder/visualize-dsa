@@ -18,7 +18,7 @@ const plate_width_max = 130;
 const plate_width_min = 50;
 
 let trans_speed: number = 100; // transition speed in ms
-let no_of_plates: number = 6;
+let no_of_plates: number = 3;
 let curr_steps: number = 0;
 
 let plates: Array<any> = [];
@@ -31,7 +31,7 @@ const towers_id = ['tower-0', 'tower-1', 'tower-2'];
 // creates plates
 const createPlates = () => {
   // remove all possible plates
-  plates = [];
+  plates.length = 0;
   towers.forEach((tower) => {
     if (tower) tower.innerHTML = '';
   });
@@ -55,6 +55,8 @@ const createPlates = () => {
   });
 };
 
+createPlates();
+
 const handleMessage = (from_tower: string, to_tower: string) => {
   from_tower = (parseInt(from_tower) + 1).toString();
   to_tower = (parseInt(to_tower) + 1).toString();
@@ -67,12 +69,13 @@ const handleMessage = (from_tower: string, to_tower: string) => {
 
 const handlePasteLogic = (tower_elm: HTMLElement) => {
   let selected_plate = document.getElementById(curr_selects.plate);
-  let last_child = <HTMLElement>(<unknown>tower_elm.lastChild);
+  let last_child = tower_elm.lastChild;
 
   // convert width string values to integer
+  // @ts-ignore
   let last_child_width = last_child?.style.width;
   // @ts-ignore
-  last_child_width = parseInt(last_child_width.slice(0, -2), 10);
+  last_child_width = parseInt(last_child_width?.slice(0, -2), 10);
   let selected_plate_width = parseInt(
     // @ts-ignore
     selected_plate?.style.width.slice(0, -2),
@@ -121,6 +124,7 @@ const handlePlateMoveWithTowers = (from_tower: string, to_tower: string) => {
     handleMessage(from_tower.substr(-1), to_tower.substr(-1));
   }
 };
+
 (function () {
   //@ts-ignore
   window.handlePlateMoveWithTowers = handlePlateMoveWithTowers;
@@ -129,10 +133,9 @@ const handlePlateMoveWithTowers = (from_tower: string, to_tower: string) => {
 // handles the click event on plate(s)
 plates.forEach((plate) => {
   plate.addEventListener('click', (event: any) => {
+    console.log(`selected plate: ${event.target?.id}`);
     // check if the plate is the top most
     if (plate.parentElement.lastElementChild === plate) {
-      // console.log('success 🏆');
-
       if (curr_selects.plate == null) {
         curr_selects.plate = event.target?.id;
         curr_selects.tower = event.target?.parentNode.id;
@@ -210,7 +213,6 @@ const updatePlatesTimeOut = (step: Array<any>, i: number) => {
 };
 
 const updatePlates = () => {
-  // for (const step of solutions) {
   solutions.forEach((step, i) => {
     updatePlatesTimeOut(step, i);
   });
@@ -218,7 +220,6 @@ const updatePlates = () => {
 
 auto_solve_btn?.addEventListener('click', () => {
   updateGame();
-
   updatePlates();
 });
 
@@ -278,6 +279,6 @@ reset_btn.addEventListener('click', () => {
   reset();
 });
 
-window.onload = () => {
-  updateGame();
-};
+// window.onload = () => {
+//   updateGame();
+// };
