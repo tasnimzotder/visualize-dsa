@@ -1,6 +1,13 @@
 name: Build Check
 
-on: [push]
+on:
+  push:
+    branches-ignore:
+      - gh-pages
+
+  pull_request:
+    branches-ignore:
+      - gh-pages
 
 jobs:
   build:
@@ -15,4 +22,4 @@ jobs:
       - name: Install dependencies 🔨
         run: npm install
       - name: Build 🏗️
-      - run: npm run build
+        run: npm run build
