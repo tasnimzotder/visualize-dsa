@@ -141,6 +141,9 @@ nav span {
   height: 16px;
   border: 3px solid rgb(255, 188, 176);
   transition: 0.3s;
+
+  font-size: 0.7em;
+  color: rgba(255, 255, 255, 0.6);
 }
 
 .plate:hover {
@@ -148,15 +151,15 @@ nav span {
   border: 3px solid rgb(252, 115, 137);
 }
 
-.plate-0 {
-  width: 120px;
-}
-.plate-1 {
-  width: 80px;
-}
-.plate-2 {
-  width: 50px;
-}
+// .plate-0 {
+//   width: 120px;
+// }
+// .plate-1 {
+//   width: 80px;
+// }
+// .plate-2 {
+//   width: 50px;
+// }
 
 .plate:not(:not(.selected)) {
   background-color: yellow;

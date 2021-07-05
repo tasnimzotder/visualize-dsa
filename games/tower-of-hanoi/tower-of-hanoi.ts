@@ -26,7 +26,23 @@ let curr_selects: any = {
   plate: null,
   tower: null,
 };
+
 const towers_id = ['tower-0', 'tower-1', 'tower-2'];
+
+let plate_colors: Array<string> = [
+  '79C99E',
+  'CB5D4E',
+  'FA7E61',
+  '5DA271',
+  'AB81CD',
+  'B5A886',
+  '73967D',
+  '689C77',
+  '4C1E4F',
+  'C84630',
+  '8093F1',
+  'B08EA2',
+];
 
 // creates plates
 const createPlates = () => {
@@ -40,11 +56,16 @@ const createPlates = () => {
     let temp_plate = document.createElement('div');
     temp_plate.classList.add('plate');
     temp_plate.setAttribute('id', `plate-${idx}`);
+    temp_plate.style.backgroundColor = `#${plate_colors[no_of_plates - idx]}`;
 
     let width =
       plate_width_min +
       ((plate_width_max - plate_width_min) / (no_of_plates - 1)) * idx;
     temp_plate.style.width = `${width}px`;
+
+    let idx_text_node = document.createTextNode(`#${idx + 1}`);
+
+    temp_plate.appendChild(idx_text_node);
 
     plates.push(temp_plate);
   }
