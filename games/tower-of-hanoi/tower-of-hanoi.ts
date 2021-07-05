@@ -1,4 +1,4 @@
-import './tower-of-hanoi-hanoi.css';
+import './tower-of-hanoi-hanoi.scss';
 
 const towers = document.querySelectorAll('.tower');
 const auto_solve_btn = document.querySelector('#auto-btn');
