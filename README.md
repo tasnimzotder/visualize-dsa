@@ -1,6 +1,6 @@
 # viz-games
 
-Visualized Games (Algo)
+Visualized Algo (Games)
 
 ## Games
 

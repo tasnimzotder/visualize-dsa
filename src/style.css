@@ -65,6 +65,8 @@ nav span {
 
 /* footer */
 footer {
+  display: flex;
+  flex-direction: column;
   position: fixed;
   bottom: 10px;
   left: 50%;
