@@ -1,3 +1,28 @@
+@mixin flex($direction, $xAlign, $yAlign) {
+  display: flex;
+  flex-direction: $direction;
+
+  @if $direction == row {
+    @if $xAlign != null {
+      justify-content: $xAlign;
+    }
+
+    @if $yAlign != null {
+      align-items: $yAlign;
+    }
+  }
+
+  @if $direction == column {
+    @if $xAlign != null {
+      align-items: $xAlign;
+    }
+
+    @if $yAlign != null {
+      justify-content: $yAlign;
+    }
+  }
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -21,9 +46,7 @@ body {
 
 // nav
 nav {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include flex(column, center, center);
   padding-top: 10px;
   padding-bottom: 10px;
 
@@ -49,19 +72,14 @@ main {
 
 .main-array {
   background-color: red;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
+  @include flex(row, center, null);
   flex-wrap: wrap;
 
   div {
     background-color: aquamarine;
     height: 50px;
     width: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include flex(row, center, center);
     border: 2px solid rgb(132, 78, 231);
     cursor: pointer;
     color: cadetblue;
@@ -77,8 +95,7 @@ main {
 
 // footer
 footer {
-  display: flex;
-  flex-direction: column;
+  @include flex(column, null, null);
   position: fixed;
   bottom: 10px;
   left: 50%;
