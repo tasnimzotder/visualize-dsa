@@ -4,7 +4,7 @@ import { defineConfig } from 'vite';
 export default defineConfig({
   build: {
     outDir: 'dist',
-    base: '/viz-games/',
+    base: '/',
     rollupOptions: {
       input: {
         main_a: resolve(__dirname, 'index.html'),
